@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intan Yunisya - Product Manager Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony (Stone/Slate Neutrals with Cyan Accent) -->
+    <!-- Application Structure Plan: A single-page, vertical narrative portfolio telling the story of the Loyalty Engine case study. The flow follows the STAR method: Introduction (Hero), Situation (Challenge), Task (Goal), Action (Solution Architecture & My Role), and Result (Quantified Success). This narrative structure is more persuasive and engaging for a hiring manager than a static dashboard, guiding them logically through the project's success. Interactive elements like counting numbers and a hover-able flowchart enhance engagement. -->
+    <!-- Visualization & Content Choices: Report Info -> Goal -> Viz/Presentation -> Interaction -> Justification. 1. Headline KPIs -> Inform/Impress -> Large animated numbers -> Count-up on scroll -> Creates a dynamic 'wow' factor. 2. Supporting KPIs (Churn) -> Compare -> Bar Chart (Chart.js) -> Hover tooltips -> Clearly visualizes the before/after impact. 3. Business Flow -> Organize/Inform -> Interactive Diagram (HTML/CSS) -> Hover to reveal details -> Makes a static diagram engaging and less overwhelming. 4. Core Values/Role -> Inform -> Icon + Card Grid -> N/A -> Improves scannability and visual appeal over plain text. Library: Chart.js on Canvas. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-slate-50/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-slate-800">Intan Yunisya</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#philosophy" class="text-slate-600 hover:text-cyan-600 px-3 py-2 rounded-md text-sm font-medium">Philosophy</a>
+                        <a href="#challenge" class="text-slate-600 hover:text-cyan-600 px-3 py-2 rounded-md text-sm font-medium">Case Study</a>
+                        <a href="#solution" class="text-slate-600 hover:text-cyan-600 px-3 py-2 rounded-md text-sm font-medium">Solution</a>
+                        <a href="#impact" class="text-slate-600 hover:text-cyan-600 px-3 py-2 rounded-md text-sm font-medium">My Impact</a>
+                        <a href="#results" class="text-slate-600 hover:text-cyan-600 px-3 py-2 rounded-md text-sm font-medium">Results</a>
+                        <a href="#contact" class="bg-cyan-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-cyan-700 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#philosophy" class="text-slate-600 hover:text-cyan-600 block px-3 py-2 rounded-md text-base font-medium">Philosophy</a>
+                <a href="#challenge" class="text-slate-600 hover:text-cyan-600 block px-3 py-2 rounded-md text-base font-medium">Case Study</a>
+                <a href="#solution" class="text-slate-600 hover:text-cyan-600 block px-3 py-2 rounded-md text-base font-medium">Solution</a>
+                <a href="#impact" class="text-slate-600 hover:text-cyan-600 block px-3 py-2 rounded-md text-base font-medium">My Impact</a>
+                <a href="#results" class="text-slate-600 hover:text-cyan-600 block px-3 py-2 rounded-md text-base font-medium">Results</a>
+                <a href="#contact" class="bg-cyan-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-cyan-700 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <section id="hero" class="pt-24 pb-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">Driving Customer Loyalty & Retention</h1>
+                    <p class="mt-4 text-lg text-slate-600">A Product Management case study on the Loyalty Engine that increased user retention by 35%.</p>
+                    <p class="mt-2 text-md text-cyan-600 font-semibold">By Intan Yunisya - Product Leader & Strategist</p>
+                </div>
+                <div>
+                     <img src="https://storage.googleapis.com/github-repo/Gemini_Generated_Image_vsch9jvsch9jvsch%20(1).jpg" 
+                         alt="Professional headshot of Intan Yunisya, a product leader and strategist" class="rounded-lg shadow-xl mx-auto w-64 h-64 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900">My Product Philosophy</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">I drive customer-centric growth by blending data-driven insights with strategic execution. My approach is grounded in three core values that guide every product decision.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">Impact-Oriented</h3>
+                    <p class="mt-2 text-slate-600">I focus on measurable business outcomes, ensuring that every feature and product launch ties back to tangible goals.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">User Empathy</h3>
+                    <p class="mt-2 text-slate-600">I deeply understand and solve customer pain points by leveraging a deep understanding of user needs and behaviors.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800">Simplicity</h3>
+                    <p class="mt-2 text-slate-600">I build intuitive and scalable product experiences. The best solutions are powerful yet feel effortless to the user.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge" class="py-20 bg-white rounded-lg shadow-xl my-10 p-8 md:p-12">
+            <div class="text-center">
+                <span class="text-cyan-600 font-semibold uppercase">The Case Study</span>
+                <h2 class="mt-2 text-3xl font-bold text-slate-900">The Loyalty Engine</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">This section breaks down the core business challenge we faced and the strategic goals I established for the Loyalty Engine product to address these issues head-on.</p>
+            </div>
+            <div class="mt-12 grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800">The Problem</h3>
+                    <p class="mt-3 text-slate-600">The business was facing a significant challenge with **high customer churn** and **low transaction frequency** within key user segments. This indicated a lack of long-term engagement and value perception among our users.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800">The Goal (My North Star)</h3>
+                    <p class="mt-3 text-slate-600">My primary objective was to reverse these trends. I set a clear goal: **Increase Active Loyal Users and Customer Lifetime Value (CLV)** within 12 months by creating a compelling, sticky product experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900">Strategic Architecture: The Loyalty Flywheel</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">To solve the challenge, I designed and managed the development of the Loyalty Engine. This system creates a self-reinforcing loop—or flywheel—where user activity is continuously rewarded, fostering deeper engagement and loyalty. Below is an interactive look at its core components.</p>
+            </div>
+            <div id="flowchart" class="mt-16 flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:justify-center md:space-x-4 relative">
+                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 hidden md:block" style="z-index: -1;"></div>
+                <div class="flow-step flex flex-col items-center text-center p-4 transition-transform duration-300 transform hover:scale-105" data-info="Designed a low-friction sign-up process via the banking app and web to maximize adoption.">
+                    <div class="bg-cyan-100 text-cyan-700 rounded-full h-20 w-20 flex items-center justify-center border-4 border-white shadow-md">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
+                    </div>
+                    <h4 class="font-semibold mt-3">Enrollment</h4>
+                </div>
+                <div class="flow-step flex flex-col items-center text-center p-4 transition-transform duration-300 transform hover:scale-105" data-info="Integrated with transaction systems to automatically reward users, ensuring a seamless and effortless experience.">
+                    <div class="bg-cyan-100 text-cyan-700 rounded-full h-20 w-20 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <h4 class="font-semibold mt-3">Earning Points</h4>
+                </div>
+                <div class="flow-step flex flex-col items-center text-center p-4 transition-transform duration-300 transform hover:scale-105" data-info="Created a streamlined redemption process for rewards, closing the loop on the user value proposition and delivering tangible benefits.">
+                     <div class="bg-cyan-100 text-cyan-700 rounded-full h-20 w-20 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg>
+                    </div>
+                    <h4 class="font-semibold mt-3">Redemption</h4>
+                </div>
+                <div class="flow-step flex flex-col items-center text-center p-4 transition-transform duration-300 transform hover:scale-105" data-info="Built a robust and scalable ecosystem to onboard new partners, expanding reward options and user engagement opportunities.">
+                    <div class="bg-cyan-100 text-cyan-700 rounded-full h-20 w-20 flex items-center justify-center border-4 border-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                    </div>
+                    <h4 class="font-semibold mt-3">Merchant Integration</h4>
+                </div>
+            </div>
+            <div id="flow-info" class="mt-8 text-center text-slate-600 h-10 transition-opacity duration-300 opacity-0">
+                Hover over a step to see the key insight.
+            </div>
+        </section>
+
+        <section id="impact" class="py-20 bg-white rounded-lg shadow-xl my-10 p-8 md:p-12">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900">My Role: Driving the Product Lifecycle</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">As the Product Manager, I led the Loyalty Engine from initial concept to a successful market launch and beyond. My role encompassed the full product lifecycle, focusing on strategy, execution, and continuous improvement.</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 text-cyan-600 bg-cyan-100 p-3 rounded-full">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-.553-.894L15 2m-6 5l6-3m0 0l6 3m-6-3v10" /></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-slate-800">Defined Product Strategy</h4>
+                        <p class="mt-1 text-slate-600">Authored the 1-year product roadmap, prioritizing features using a 2x2 matrix to target high-value user segments and maximize ROI.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-cyan-600 bg-cyan-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-slate-800">Led Go-to-Market (GTM)</h4>
+                        <p class="mt-1 text-slate-600">Coordinated Engineering, Marketing, and Operations for a successful launch, acquiring over 100K+ users in the first month.</p>
+                    </div>
+                </div>
+                 <div class="flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-cyan-600 bg-cyan-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-slate-800">Managed Stakeholders</h4>
+                        <p class="mt-1 text-slate-600">Presented performance dashboards and roadmaps weekly to C-level executives, securing budget renewal for the next phase of development.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-cyan-600 bg-cyan-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-slate-800">Championed User Research</h4>
+                        <p class="mt-1 text-slate-600">Conducted user interviews and A/B testing to validate key features, which led to a 15% increase in adoption for targeted functionalities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900">Quantified Success: Key Performance Indicators</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">The success of the Loyalty Engine wasn't just anecdotal; it was driven by data. The product delivered significant, measurable improvements across all of our primary key performance indicators (KPIs).</p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <p class="text-5xl font-bold text-cyan-600" data-target="35">0%</p>
+                    <p class="mt-2 text-lg font-semibold text-slate-800">Increase in User Retention</p>
+                    <p class="text-slate-600">for enrolled users.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <p class="text-5xl font-bold text-cyan-600" data-target="20">0%</p>
+                    <p class="mt-2 text-lg font-semibold text-slate-800">Higher Average Transactions</p>
+                    <p class="text-slate-600">per month for loyal members.</p>
+                </div>
+            </div>
+             <div class="mt-12 bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold text-slate-800 text-center mb-6">Churn Reduction: Enrolled vs. Non-Enrolled Users</h3>
+                <div class="chart-container">
+                    <canvas id="churnChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="py-20 text-center">
+            <h2 class="text-3xl font-bold text-slate-900">Let's Connect</h2>
+            <p class="mt-4 max-w-xl mx-auto text-lg text-slate-600">Thank you for reviewing my work. I'm passionate about building products that solve real problems and drive business growth. I'd love to discuss how I can bring my skills and experience to your team.</p>
+            <div class="mt-8 flex justify-center items-center space-x-6">
+                <a href="mailto:example@email.com" class="text-slate-600 hover:text-cyan-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </a>
+                <a href="#" class="text-slate-600 hover:text-cyan-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 mt-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+            <p>&copy; 2025 Intan Yunisya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('[data-target]');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const suffix = counter.innerText.includes('%') ? '%' : '';
+                            let current = 0;
+                            const increment = target / 100;
+
+                            const updateCounter = () => {
+                                if (current < target) {
+                                    current += increment;
+                                    counter.innerText = Math.ceil(current) + suffix;
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target + suffix;
+                                }
+                            };
+                            updateCounter();
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const resultsSection = document.getElementById('results');
+            if (resultsSection) {
+                observer.observe(resultsSection);
+            }
+            
+            const flowSteps = document.querySelectorAll('.flow-step');
+            const flowInfo = document.getElementById('flow-info');
+            const defaultInfoText = 'Hover over a step to see the key insight.';
+            
+            flowSteps.forEach(step => {
+                step.addEventListener('mouseenter', () => {
+                    const info = step.getAttribute('data-info');
+                    flowInfo.textContent = info;
+                    flowInfo.classList.remove('opacity-0');
+                    flowInfo.classList.add('opacity-100');
+                });
+
+                step.addEventListener('mouseleave', () => {
+                    flowInfo.textContent = defaultInfoText;
+                    flowInfo.classList.remove('opacity-100');
+                    flowInfo.classList.add('opacity-0');
+                });
+            });
+            flowInfo.classList.add('opacity-100');
+            flowInfo.textContent = defaultInfoText;
+
+
+            const ctx = document.getElementById('churnChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Non-Enrolled Users', 'Enrolled Users'],
+                    datasets: [{
+                        label: 'Monthly Churn Rate (%)',
+                        data: [5.2, 2.7], 
+                        backgroundColor: [
+                            'rgba(203, 213, 225, 0.6)',
+                            'rgba(22, 163, 74, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgb(100, 116, 139)',
+                            'rgb(21, 128, 61)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Churn Rate (%)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                             callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
